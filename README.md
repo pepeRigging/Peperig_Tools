@@ -16,7 +16,7 @@ Un conjunto de herramientas de Python para Autodesk Maya diseñado para optimiza
 
 1. Descarga o clona este repositorio dentro de tu carpeta de scripts de Maya:
    ```bash
-   git clone https://github.com
+   git clone (https://github.com/pepeRigging/Peperig_Tools.git)
    ```
 
 2. Abre el **Script Editor** de Maya en una pestaña de **Python** y ejecuta la herramienta que necesites:
