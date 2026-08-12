@@ -10,9 +10,19 @@ from shiboken6 import wrapInstance
 from PySide6 import QtWidgets as wdg
 from PySide6 import QtGui as gui
 from PySide6 import QtCore as core
-import pymel.core as pm
 import maya.cmds as mc
+import sys
+import subprocess
+
 mainWindow=None
+
+try:
+    import pymel.core as pm
+except ImportError:
+    # Si PyMel no existe, se instala automáticamente en el Python de Maya
+    print("PyMel no detectado. Instalando...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pymel"])
+    import pymel.core as pm
 
 class OutlinerTool(wdg.QMainWindow):
 
