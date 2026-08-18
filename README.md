@@ -9,11 +9,15 @@ A collection of Python tools for Autodesk Maya designed to streamline and speed 
 * **Centralized Management:** Manage and organize multiple types of constraints from a clean and intuitive interface.
 * **Hierarchy Automation:** Reduce manual errors when connecting and managing complex node hierarchies.
 
+**Demo**
+https://youtu.be/oSyYuMWCV2M?si=1ZVym-O0YxOOunVR
 ### 2. Custom Outliner 👁️
 
 * **Advanced Filtering:** Display only the nodes you need for your rig, such as joints, controls, locators, and more.
 * **Clean Organization:** Reduce the visual clutter of Maya's native Outliner, making it faster and easier to work with complex rigs.
 
+**Demo**
+https://youtu.be/6x2vQmQfe5Q?si=ZMnr2HReByCICJ45
 ## 🚀 Installation & Usage
 
 1. Download or clone this repository into your Maya scripts folder:
@@ -62,10 +66,14 @@ Un conjunto de herramientas de Python para Autodesk Maya diseñado para optimiza
 * **Gestión centralizada:** Controla y organiza múltiples tipos de constraints desde una interfaz limpia.
 * **Automatización de jerarquías:** Reduce errores manuales al conectar nodos complejos.
 
+**Demo**
+https://youtu.be/oSyYuMWCV2M?si=1ZVym-O0YxOOunVR
 ### 2. Custom Outliner 👁️
 * **Filtros avanzados:** Visualiza solo los nodos que te interesan para el rig (joints, controles, locators).
 * **Organización limpia:** Limpia el ruido visual del Outliner nativo de Maya para trabajar más rápido.
 
+**Demo**
+https://youtu.be/6x2vQmQfe5Q?si=ZMnr2HReByCICJ45
 ## 🚀 Instalación y Uso
 
 1. Descarga o clona este repositorio dentro de tu carpeta de scripts de Maya:
