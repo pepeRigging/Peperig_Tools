@@ -107,5 +107,3 @@ def run():
     mainWindow.show()
     
 run()
-
-0.2
