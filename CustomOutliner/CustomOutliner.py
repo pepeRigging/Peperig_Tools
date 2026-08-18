@@ -3,7 +3,7 @@ __author__ = "jose lozano"
 __version__ = "1.0"
 __maintainer__ = "jose lozano"
 __email__ = "contact@peperig.com"
-__status__ = "WIP"
+__status__ = "still WIP"
 
 import maya.OpenMayaUI as omui
 from shiboken6 import wrapInstance
