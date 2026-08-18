@@ -565,5 +565,3 @@ def run():
     if not mainWindow or not cmds.window(mainWindow,q=True,exists=True):
         mainWindow = ConstraintMng()
     mainWindow.show()
-    
-run()
