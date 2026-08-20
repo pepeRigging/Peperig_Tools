@@ -13,7 +13,6 @@ from PySide6 import QtCore as core
 import maya.cmds as mc
 import sys
 import subprocess
-
 mainWindow=None
 
 try:
