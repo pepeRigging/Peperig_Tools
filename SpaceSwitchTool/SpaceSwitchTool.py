@@ -33,7 +33,7 @@ except ImportError:
 class secondary(wdg.QWidget):
     def __init__(self,seleccion):
         super(secondary,self).__init__()
-        ## usamos self para importar todo de QMainWindow
+        ## usamos self para importar
         self.resize(100,500)
         self.seletObj=seleccion
         self.setWindowFlags(core.Qt.WindowStaysOnTopHint)
@@ -76,8 +76,8 @@ class secondary(wdg.QWidget):
         
     def deletetarget(self):
         self.close()
-        SpaceSwitcher.lisVentanas.remove(self)
-        SpaceSwitcher.Switches.remove(self)
+        SpaceSwitcherTool.lisVentanas.remove(self)
+        SpaceSwitcherTool.Switches.remove(self)
         self.setAttribute(core.Qt.WA_DeleteOnClose)
     
     def cerrarEnum(self):
