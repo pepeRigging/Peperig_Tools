@@ -91,8 +91,9 @@ class SpaceSwitcherTool(wdg.QMainWindow):
     Switches=[]
     def __init__(self):
         super(SpaceSwitcherTool,self).__init__()
-        ## usamos self para importar todo de QMainWindow
+        ## usamos self para importar
         self.setWindowTitle("Space Switcher Tool v{}".format(__version__))
+        self.setWindowFlags(core.Qt.WindowStaysOnTopHint)
         self.resize(500,500)
         self.createUI()
         del self.Switches[:]
@@ -332,3 +333,5 @@ def run():
     if not mainWindow or not cmds.window(mainWindow,q=True,exists=True):
         mainWindow = SpaceSwitcherTool()
     mainWindow.show()
+
+run()
