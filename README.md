@@ -18,6 +18,17 @@ https://youtu.be/oSyYuMWCV2M?si=1ZVym-O0YxOOunVR
 
 **Demo**
 https://youtu.be/6x2vQmQfe5Q?si=ZMnr2HReByCICJ45
+
+
+### 3. Switcher Tool 👁
+
+* **Custom Menus:** Create personalized drop-down menus in the Channel Box to show linked elements.
+* **Viewport Access:** Generate a convenient context menu directly in the viewport for quick selection.
+
+
+**Demo**
+https://youtu.be/NLXNSn9J4-M
+
 ## 🚀 Installation & Usage
 
 1. Download or clone this repository into your Maya scripts folder:
@@ -42,6 +53,13 @@ import importlib
 importlib.reload(CustomOutliner)
 
 CustomOutliner.run()
+
+# Open the SpaceSwitchTool:
+import SpaceSwitchTool
+import importlib
+importlib.reload(SpaceSwitchTool)
+
+SpaceSwitchTool.run()
 ```
 
 ## 📝 Requirements

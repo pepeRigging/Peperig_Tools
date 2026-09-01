@@ -327,5 +327,3 @@ def run():
     if not mainWindow or not cmds.window(mainWindow,q=True,exists=True):
         mainWindow = SpaceSwitcherTool()
     mainWindow.show()
-
-run()

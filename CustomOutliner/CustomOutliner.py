@@ -104,5 +104,3 @@ def run():
     if not mainWindow or not mc.window(mainWindow,q=True,exists=True):
         mainWindow = OutlinerTool()
     mainWindow.show()
-    
-run()
