@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 __author__ = "jose lozano"
-
 __version__ = "1.0"
 __maintainer__ = "jose lozano"
-__email__ = "Jose.lozano@3Doubles.com"
+__email__ = "contact@peperig.com"
 __status__ = "WIP"
 
 from PySide6 import QtWidgets as wdg
@@ -42,10 +41,10 @@ class secondary(wdg.QWidget):
     def createUI(self):
         mainLayout=wdg.QHBoxLayout(self)
         mainLayout.setAlignment(core.Qt.AlignTop)
-        
+
         boxes=wdg.QGroupBox()
         boxes_Lyt=wdg.QHBoxLayout(boxes)
-        
+
         labeling=wdg.QLabel("Driver Node :")
         self.EnumingControl=wdg.QLineEdit(self.seletObj)
         self.boton=wdg.QPushButton("<<")
@@ -54,38 +53,38 @@ class secondary(wdg.QWidget):
         self.botonDelete=wdg.QPushButton("X")
         self.botonDelete.setStyleSheet('QPushButton {color: red;}')
 
-        
+
         self.botonDelete.released.connect(self.deletetarget)
         self.boton.released.connect(self.changeDriverName)
-        
+
         boxes_Lyt.addWidget(labeling)
         boxes_Lyt.addWidget(self.EnumingControl)
         boxes_Lyt.addWidget(self.boton)
         boxes_Lyt.addWidget(labeling2)
         boxes_Lyt.addWidget(self.EnumingDysplay)
         boxes_Lyt.addWidget(self.botonDelete)
-        
+
         mainLayout.addWidget(boxes)
-    
+
     def changeDriverName(self):
         sel=cmds.ls(sl=True)
         if len(sel)!=1:
             cmds.warning("need 1 only")
             return
         self.EnumingControl.setText(sel[0])
-        
+
     def deletetarget(self):
         self.close()
         SpaceSwitcherTool.lisVentanas.remove(self)
         SpaceSwitcherTool.Switches.remove(self)
         self.setAttribute(core.Qt.WA_DeleteOnClose)
-    
+
     def cerrarEnum(self):
         self.close()
         self.setAttribute(core.Qt.WA_DeleteOnClose)
-        
 
-        
+
+
 class SpaceSwitcherTool(wdg.QMainWindow):
     lisVentanas=[]
     Switches=[]
@@ -105,16 +104,14 @@ class SpaceSwitcherTool(wdg.QMainWindow):
         centralWidget=wdg.QWidget()
         self.setCentralWidget(centralWidget)
         mainLayout=wdg.QVBoxLayout(centralWidget)
-        
+
         tabs=wdg.QTabWidget()
         creation_tab=wdg.QWidget()
         creacion_Lyt=wdg.QVBoxLayout(creation_tab)
         tabs.addTab(creation_tab,"Constraint")
-        
-        edit_tab=wdg.QWidget()
-        tabs.addTab(edit_tab,"Visibility")
+
         mainLayout.addWidget(tabs)
-        
+
         ##Group boxes
                 ##info group
         grupoinfo= wdg.QGroupBox("Info")
@@ -137,14 +134,14 @@ class SpaceSwitcherTool(wdg.QMainWindow):
                                 "color: white}"
                                 "QGroupBox {font-weight: bold;}")
         spaces_Lyt=wdg.QVBoxLayout(grupospaces)
-        
+
         ###############
                             ##info Space contenido
         self.spaces_Btn=wdg.QPushButton("Add Spaces")
         ##dinamic window
         self.dinamicspaceswitget=wdg.QScrollArea()
         #self.dinamicspaceswitget.setSizePolicy(wdg.QSizePolicy.MinimumExpanding,wdg.QSizePolicy.Fixed)
-        
+
         self.dinamicspaceswitget.setWidgetResizable(True)
         self.scrollwitget=wdg.QWidget()
         self.scrollwitget.setSizePolicy(wdg.QSizePolicy.Expanding,wdg.QSizePolicy.Maximum)
@@ -155,7 +152,7 @@ class SpaceSwitcherTool(wdg.QMainWindow):
         ## add to main lyt
         spaces_Lyt.addWidget(self.spaces_Btn)
         spaces_Lyt.addWidget(self.dinamicspaceswitget)
-        
+
         ###############
                             ##info group contenido
         labeling=["Target Node","Parent Grp","Switch Attr","Switch Constraint"]
@@ -190,27 +187,27 @@ class SpaceSwitcherTool(wdg.QMainWindow):
         ##add groupboxex
         creacion_Lyt.addWidget(grupoinfo)
         creacion_Lyt.addWidget(grupospaces)
-        
+
         ##add creation and delete buttons
         self.delete_bt=wdg.QPushButton("Delete Space")
         self.create_bt=wdg.QPushButton("Generate")
-        
+
         ## add button
         creacion_Lyt.addWidget(self.delete_bt)
         creacion_Lyt.addWidget(self.create_bt)
-        
+
 
         ##############
         ######          COMMANDS
         ###############
         self.delete_bt.released.connect(self.deleteSpaces)
         self.create_bt.released.connect(self.generateSpaces)
-        
+
         self.buttoninfo[0].released.connect(self.getTarget)
         self.buttoninfo[1].released.connect(self.getParentGrp)
         self.buttoninfo[2].currentIndexChanged.connect(self.getConstraint)
-        
-        
+
+
         self.spaces_Btn.released.connect(self.addSpacesWindows)
     ##############
         ######          FUNCTIONS
@@ -220,7 +217,7 @@ class SpaceSwitcherTool(wdg.QMainWindow):
         if len(sel)==0:
             cmds.warning("need selection")
             return
-            
+
         for name in sel:
             enumeres=secondary(name)
             self.Switches.append(enumeres)
@@ -228,9 +225,9 @@ class SpaceSwitcherTool(wdg.QMainWindow):
             for each in self.lisVentanas:
                 if not cmds.window(each,q=True,exists=True):
                     self.dinamicspacesLayout.addWidget(each)
-        
-        
-        
+
+
+
     def pasteNameselected(self,Target):
         sel=pm.ls(sl=True)
         if len(sel)!=1:
@@ -242,14 +239,14 @@ class SpaceSwitcherTool(wdg.QMainWindow):
             self.infoNamingLine[1].setText(sel[0].name())
     def getTarget(self):
         self.pasteNameselected(True)
-    
+
     def getConstraint(self):
         self.infoNamingLine[3].setText(self.buttoninfo[2].currentText())
-        
+
     def getParentGrp(self):
         self.pasteNameselected(False)
-    
-    def createSystem(self): 
+
+    def createSystem(self):
         if cmds.attributeQuery(self.infoNamingLine[2].text(), ex=True ,node=self.infoNamingLine[0].text()):
             cmds.warning("Name attribute exist already")
             return
@@ -258,15 +255,12 @@ class SpaceSwitcherTool(wdg.QMainWindow):
         for each in self.Switches:
             driver.append(each.EnumingControl.text())
             driverNaming.append(each.EnumingDysplay.text())
-            
+
         if len(driver)<2:
             cmds.warning("need Add 2 spaces")
             return
-        
 
-                                                ##comprobar si tiene conexiones y si tiene STOP
-        
-        typeConstraint=self.infoNamingLine[3].text() 
+        typeConstraint=self.infoNamingLine[3].text()
         attr=[".tx",".ty",".tz",".rx",".ry",".rz",".sx",".sy",".sz"]
         if typeConstraint=="parentConstraint":
             for each in attr:
@@ -292,12 +286,12 @@ class SpaceSwitcherTool(wdg.QMainWindow):
                         return
             constraint = cmds.orientConstraint(driver,self.infoNamingLine[1].text(), mo=1)[0]
             weight=cmds.orientConstraint(constraint,wal=True,q=True)
-            
-            
+
+
         defaultState=0
         ## crear attribute
         cmds.addAttr(self.infoNamingLine[0].text(),ln=self.infoNamingLine[2].text(), at="enum", en=":".join(driverNaming), dv=defaultState,k=1)
-        
+
         ## crear choices setups
         for each in range(len(driver))[::-1]:
             valorChoice= [1 if num==each else 0 for num in range(len(driver))]
@@ -306,27 +300,27 @@ class SpaceSwitcherTool(wdg.QMainWindow):
             cmds.connectAttr(self.infoNamingLine[0].text() + "."+ self.infoNamingLine[2].text() ,choice + ".selector")
             for inp in range (len(valorChoice)):
                 cmds.setAttr(choice + ".input[{0}]".format(inp),valorChoice[inp])
-            
+
             cmds.connectAttr(choice + ".output",constraint + "." + weight[each] )
-        
+
             ## conect choice to constraint
-        
-        
+
+
     def createConstraint(self,drivers,driven):
         costraint = cmds.parentConstraint(drivers,driven, mo=1)[0]
         return costraint
-        
+
     def deleteSpaces(self):
         for each in self.Switches:
             each.cerrarEnum()
         del self.lisVentanas[:]
         del self.Switches[:]
-        
+
     def generateSpaces(self):
         self.createSystem()
-        
+
     def closeEvent(self,event):
-        event.accept()    
+        event.accept()
 ## iniciar la ventana y comprobar si existe
 def run():
     global mainWindow
