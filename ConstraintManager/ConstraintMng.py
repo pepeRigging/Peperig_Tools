@@ -6,17 +6,8 @@ __email__ = "contact@peperig.com"
 __status__ = "WIP"
 
 from PySide6 import QtWidgets as wdg
-from PySide6 import QtGui as gui
 from PySide6 import QtCore as core
-from PySide6.QtWidgets import QMessageBox as QMB
 import maya.cmds as cmds
-import maya.OpenMayaUI as mui
-import shiboken6
-import time
-import math
-import functools
-#import pymel.core as pm
-
 import sys
 import subprocess
 
